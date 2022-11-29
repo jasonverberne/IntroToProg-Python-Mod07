@@ -237,6 +237,7 @@ This document described the steps taken and approach to completing Assignment07 
 
 
 -----------------------------------------------------------------------------------------------------
+**_Reposting of the Python Script from images above_**
  ```
  import pickle # Needed for saving via the 'pickle' method
 
