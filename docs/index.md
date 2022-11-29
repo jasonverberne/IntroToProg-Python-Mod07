@@ -32,52 +32,61 @@ Assignment 07 had different elements, including:
 
 **_RESEARCH_**
 
-1.	Exception Handling 
-    -	https://www.geeksforgeeks.org/python-exception-handling (external link), October 11, 2022, contributions by Akanksha_Rai, nikhilaggarwal3, anuragsharma011011, punamsingh628700, swarajjalkote98  
-      * I like the geeksforgeeks.com site because the information is often up to date.  
-      * This page provides examples of code that can be studied and copied/pasted in Python for review.  
-      * For me, this page follows a logical, step by step approach to reviewing Exception Handling in Python, including covering syntax error vs exceptions, try/except statements and catching errors, and try/else/finally statements.
-b.	https://practicaldatascience.co.uk/data-science/how-to-try-except-for-python-exception-handling (external link), Matt Clarke, December 24, 2021
-i.	This article does a good job of explaining the try/except/finally method while using opening a file as an example. 
-ii.	The explanation followed a linear progression but was still geared towards a new user.
-2.	Pickle Function
-a.	https://www.datacamp.com/tutorial/pickle-python-tutorial (external link),  Theo Vanderheyden, Apr 2018, Theo Vanderheyden
-i.	The first half of this article does a good job of explaining the ‘what and when’ of Pickling, and even discusses a basic comparison and contrast against JSON, which is useful for a new user. 
-ii.	The second half, while I didn’t fully understand the examples, began to demonstrate the limitations of the Pickle Method, specifically if you try to pickle Lamda functions. As a result, I’ll be reading more into these other areas soon to learn more. 
-b.	https://www.youtube.com/watch?v=Pl4Hp8qwwes (external link), Mark Jay, November 12, 2017
-i.	This YouTube video provided a different approach to the Pickle Method than that generally show in class, specifically by using the ‘with’ method. Many of the concepts were the same. I find this information useful so if I see this in the future, I will be more aware and familiar with this approach.
-ii.	 The presenter followed a logical approach in explaining the information. 
+1.	__Exception Handling__  
+  a. https://www.geeksforgeeks.org/python-exception-handling (external link), October 11, 2022, contributions by Akanksha_Rai, nikhilaggarwal3, anuragsharma011011,          punamsingh628700, swarajjalkote98  
+  
+      - I like the geeksforgeeks.com site because the information is often up to date.  
+      
+      - This page provides examples of code that can be studied and copied/pasted in Python for review.  
+      
+      - For me, this page follows a logical, step by step approach to reviewing Exception Handling in Python, including covering syntax error vs exceptions, try/except statements and catching errors, and try/else/finally statements.
+      
+    b. https://practicaldatascience.co.uk/data-science/how-to-try-except-for-python-exception-handling (external link), Matt Clarke, December 24, 2021  
+    
+      - This article does a good job of explaining the try/except/finally method while using opening a file as an example.
+      
+      - The explanation followed a linear progression but was still geared towards a new user.  
 
--- PYTHON SCRIPT – DEMONSTRATE PICKLE AND EXCEPTION HANDLING –
+2.	__Pickle Function__  
+  a.	https://www.datacamp.com/tutorial/pickle-python-tutorial (external link),  Theo Vanderheyden, Apr 2018, Theo Vanderheyden
+    - The first half of this article does a good job of explaining the ‘what and when’ of Pickling, and even discusses a basic comparison and contrast against JSON, which is useful for a new user.
+    - The second half, while I didn’t fully understand the examples, began to demonstrate the limitations of the Pickle Method, specifically if you try to pickle Lamda functions. As a result, I’ll be reading more into these other areas soon to learn more.
+    
+    b.	https://www.youtube.com/watch?v=Pl4Hp8qwwes (external link), Mark Jay, November 12, 2017  
+    - This YouTube video provided a different approach to the Pickle Method than that generally show in class, specifically by using the ‘with’ method. Many of the concepts were the same. I find this information useful so if I see this in the future, I will be more aware and familiar with this approach.  
+    - The presenter followed a logical approach in explaining the information.  
 
-HEADER
+**_-- PYTHON SCRIPT – DEMONSTRATE PICKLE AND EXCEPTION HANDLING -- _**
+
 Before writing code that will actually perform the task, it is important to provide supporting information to any programmer, including myself for later use, about the purpose and historical activities of the code. This information does not have to be lengthy, although it could be if needed. In this case, I provided a description of what the code would do, then provided the Who, What, and When of the changes. 
 -----------------------------------------------------------------------------------
  
 -----------------------------------------------------------------------------------
 Figure 1: Header of Python code
 
+**Header**  
 Because this information is not intended to be processed by Python, I started each line with a “#” symbol. In Python, any line that begins with a number sign (aka the pound sign) will not be processed by Python. Alternatively, I could have used two sets of three single quotes (‘’’) with the header information between the sets, which would have provided the same result. 
 
-CODE INFORMATION 
+**CODE INFORMATION**  
 The notable elements of this code include:
 1.	variables - the variables I used to store the data are:
-a.	intChoice – used to store the user’s information from the input() function
-b.	strFile – stores the name of the dat file for storing pickled data
-c.	count_1 – stores numbers for counting in a loop
-d.	lstNumbers - represents a list of dictionaries
-e.	dicNumCube - holds the dictionary which is appended to lstNumbers. The dictionary contains user specified numbers and the cube (^3) of those numbers
+  - intChoice – used to store the user’s information from the input() function
+  - strFile – stores the name of the dat file for storing pickled data
+  - count_1 – stores numbers for counting in a loop
+  - lstNumbers - represents a list of dictionaries
+  - dicNumCube - holds the dictionary which is appended to lstNumbers. The dictionary contains user specified numbers and the cube (^3) of those numbers
 2.	User defined functions – used to process information/data
-a.	verify_integer – uses try/except to verify input from the user is an integer
-b.	verify_float – uses try/except to verify input from the user is a float
-c.	save_data – saves a list of dictionaries that contain the user chosen number and the cube of that number
-d.	read_data – opens the saved pickle file, loads data, stores data in variable file_info, and uses for loop to print stored data
-3.	.append – this method appends the identified object to the list
-4.	Try/except – this method first attempts to run code under the ‘try’ but if an error occurs, the except runs, assuming no specific error has been identified, such as ValueError, or the specific error matches the one that occurred
-5.	for/in – this loop iterates through an object, in this case a list, and performs the programmer defined action on each object in the list.
-6.	Pickle open/close file and dump/load data – this includes opening/closing files and reads/writes to/from the file allowing potential updates to occur or the program to read from the opened file. In this case, it was a dat file. 
-7.	input() - this function allows the user to provide information to be stored in Python
-8.	return – used as the end of a function, this statement defines what is returned after the function is complete 
+  - verify_integer – uses try/except to verify input from the user is an integer
+  - verify_float – uses try/except to verify input from the user is a float
+  - save_data – saves a list of dictionaries that contain the user chosen number and the cube of that number
+  - read_data – opens the saved pickle file, loads data, stores data in variable file_info, and uses for loop to print stored data
+  - .append – this method appends the identified object to the list
+  - Try/except – this method first attempts to run code under the ‘try’ but if an error occurs, the except runs, assuming no specific error has been identified, such as ValueError, or the specific error matches the one that occurred
+  - for/in – this loop iterates through an object, in this case a list, and performs the programmer defined action on each object in the list.
+3.	Pickle open/close file and dump/load data – this includes opening/closing files and reads/writes to/from the file allowing potential updates to occur or the program to read from the opened file. In this case, it was a dat file. 
+4.	input() - this function allows the user to provide information to be stored in Python
+5.	return – used as the end of a function, this statement defines what is returned after the function is complete 
+
 -----------------------------------------------------------------------------------
 SEPARATION OF CONCERN
  “Separation of Concern,” is defined as, “In computer science, separation of concerns (SoC) is a design principle for separating a computer program into distinct sections, so that each section addresses a separate concern. A concern is a set of information that affects the code of a computer program.” https://en.wikipedia.org/wiki/Separation_of_concerns (external link), 2019. In our Assignment06 template, we had several notes identifying the separate areas. 
