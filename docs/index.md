@@ -68,48 +68,75 @@ Assignment 07 had different elements, including:
 
 **_PYTHON SCRIPT – DEMONSTRATE PICKLE AND EXCEPTION HANDLING_**
 
+**Header**  
+
 Before writing code that will actually perform the task, it is important to provide supporting information to any programmer, including myself for later use, about the purpose and historical activities of the code. This information does not have to be lengthy, although it could be if needed. In this case, I provided a description of what the code would do, then provided the Who, What, and When of the changes. 
 
------------------------------------------------------------------------------------
- 
------------------------------------------------------------------------------------
-Figure 1: Header of Python code
 
-**Header**  
+ ```
+ # Title: Assignment 07
+# Description: This script will request a quantity of numbers to cube, gather the numbers to cube, cube those numbers,
+#              save the numbers to a binary file, then read the binary file and return the data to the user.
+# ChangeLog (Who,When,What):
+# Jason Verberne,11/27/2022,Created script for Assignment07
+# Jason Verberne,11/28/2022,Added notes
+```
+*Figure 1: Header of Python code*
+
 Because this information is not intended to be processed by Python, I started each line with a “#” symbol. In Python, any line that begins with a number sign (aka the pound sign) will not be processed by Python. Alternatively, I could have used two sets of three single quotes (‘’’) with the header information between the sets, which would have provided the same result. 
 
 **CODE INFORMATION**  
 The notable elements of this code include:
 1.	variables - the variables I used to store the data are:
-  - intChoice – used to store the user’s information from the input() function
-  - strFile – stores the name of the dat file for storing pickled data
-  - count_1 – stores numbers for counting in a loop
-  - lstNumbers - represents a list of dictionaries
-  - dicNumCube - holds the dictionary which is appended to lstNumbers. The dictionary contains user specified numbers and the cube (^3) of those numbers
+    
+    - intChoice – used to store the user’s information from the input() function
+    
+    - strFile – stores the name of the dat file for storing pickled data
+    
+    - count_1 – stores numbers for counting in a loop
+    
+    - lstNumbers - represents a list of dictionaries
+    
+    - dicNumCube - holds the dictionary which is appended to lstNumbers. The dictionary contains user specified numbers and the cube (^3) of those numbers
+
 2.	User defined functions – used to process information/data
-  - verify_integer – uses try/except to verify input from the user is an integer
-  - verify_float – uses try/except to verify input from the user is a float
-  - save_data – saves a list of dictionaries that contain the user chosen number and the cube of that number
-  - read_data – opens the saved pickle file, loads data, stores data in variable file_info, and uses for loop to print stored data
-  - .append – this method appends the identified object to the list
-  - Try/except – this method first attempts to run code under the ‘try’ but if an error occurs, the except runs, assuming no specific error has been identified, such as ValueError, or the specific error matches the one that occurred
-  - for/in – this loop iterates through an object, in this case a list, and performs the programmer defined action on each object in the list.
+    
+    - verify_integer – uses try/except to verify input from the user is an integer
+    
+    - verify_float – uses try/except to verify input from the user is a float
+    
+    - save_data – saves a list of dictionaries that contain the user chosen number and the cube of that number
+    
+    - read_data – opens the saved pickle file, loads data, stores data in variable file_info, and uses for loop to print stored data
+    
+    - .append – this method appends the identified object to the list
+    
+    - Try/except – this method first attempts to run code under the ‘try’ but if an error occurs, the except runs, assuming no specific error has been identified, such as ValueError, or the specific error matches the one that occurred
+    
+    - for/in – this loop iterates through an object, in this case a list, and performs the programmer defined action on each object in the list.
+
 3.	Pickle open/close file and dump/load data – this includes opening/closing files and reads/writes to/from the file allowing potential updates to occur or the program to read from the opened file. In this case, it was a dat file. 
+
 4.	input() - this function allows the user to provide information to be stored in Python
+
 5.	return – used as the end of a function, this statement defines what is returned after the function is complete 
 
------------------------------------------------------------------------------------
-SEPARATION OF CONCERN
- “Separation of Concern,” is defined as, “In computer science, separation of concerns (SoC) is a design principle for separating a computer program into distinct sections, so that each section addresses a separate concern. A concern is a set of information that affects the code of a computer program.” https://en.wikipedia.org/wiki/Separation_of_concerns (external link), 2019. In our Assignment06 template, we had several notes identifying the separate areas. 
+
+**SEPARATION OF CONCERN**
+
+“Separation of Concern,” is defined as, “In computer science, separation of concerns (SoC) is a design principle for separating a computer program into distinct sections, so that each section addresses a separate concern. A concern is a set of information that affects the code of a computer program.” https://en.wikipedia.org/wiki/Separation_of_concerns (external link), 2019. In our Assignment06 template, we had several notes identifying the separate areas. 
  
+ ```
+ # Data ---------------------------------------------------------------------- #
+ # Processing  --------------------------------------------------------------- #
+ # Presentation (Input/Output)  -------------------------------------------- #
+ ```
+*Figure 2, Separations of Concern from the provided script*
  
+
  
------------------------------------------------------------------------------------
-Figure 2, Separations of Concern from the provided script
- 
- 
- 
------------------------------------------------------------------------------------
+
+
 Figure3:  Python script for Assignment 07
 
 CODE DETAILS
@@ -185,3 +212,124 @@ There were a few challenges and points of learning from this week’s assignment
 
 SUMMARY
 This document described the steps taken and approach to completing Assignment07 of the Foundations of Programming: Python Course. It discussed the prior knowledge and background information considered when writing this script, the major sections of the script, and the returned results the user would expect. 
+
+
+
+-----------------------------------------------------------------------------------------------------
+ ```
+ import pickle # Needed for saving via the 'pickle' method
+
+
+# Data ---------------------------------------------------------------------- #
+intChoice = "Pending" #not an integer initially so the code will loop until correct data is provided by the user
+strFile = "NumberCube.dat"
+count_1 = 1
+lstNumbers = []
+dicNumCube = {}
+
+
+# Processing  --------------------------------------------------------------- #
+def verify_integer (user_choice):
+    '''Verifies input from user is type Integer with possible exceptions
+
+    :param user_choice: try verifies user entered an integer, except ValueError if not an integer
+    :return: (integer) returns user input if integer or "Pending" if not integer to continue the loop
+    '''
+    try:
+        choice = int(user_choice)
+        return choice
+    except ValueError as e:
+        print("\nError: You must choose an integer. Please try again.\n")
+        print("=" * 15 + "Technical Data Info"+"=" * 15)
+        print("Built-In Python error info: ")
+        print(e, e.__doc__, type(e), sep='\n')
+        print("=" * 49)
+        print()
+        return "Pending"
+    except Exception as e:
+        print("There was a non-specific error!")
+        print("=" * 15 + "Technical Data Info"+"=" * 15)
+        print("Built-In Python error info: ")
+        print(e, e.__doc__, type(e), sep='\n')
+        print("=" * 49)
+        print()
+        return "Pending"
+
+def verify_float(user_input):
+    '''Verifies input from user is type float with possible exceptions
+
+    :param user_input: Function verifies user_input is type float.
+    :return: (float) returns user input if it was initially float or 0 (zero) if not float
+    '''
+    try:
+        choice = float(user_input)
+        return choice
+    except ValueError as e:
+        print("\nError: You must choose a float to cube. A 0 (zero) will be entered for this calculation.\n")
+        print("=" * 15 + "Technical Data Info"+"=" * 15)
+        print("Built-In Python error info: ")
+        print(e, e.__doc__, type(e), sep='\n')
+        print("=" * 49)
+        print()
+        return int(0)
+    except Exception as e:
+        print("There was a non-specific error!")
+        print("=" * 15 + "Technical Data Info"+"=" * 15)
+        print("Built-In Python error info: ")
+        print(e, e.__doc__, type(e), sep='\n')
+        print("=" * 49)
+        print()
+        return int(0)
+
+def save_data(data,file_name):
+    ''' Saves the list of numbers from the user to the dat file.
+
+    :param data: (list): saves the lstNumbers from user and their cubes to the pickle file
+    :param file_name: (file): is the file name to which the information is being saved
+    :return: n/a
+    '''
+    file = open(file_name,"wb")
+    pickle.dump(lstNumbers,file)
+    file.close()
+    return()
+
+def read_data(file_name):
+    ''' Opens the saved pickle file, loads data, stores data in variable file_info, and uses for loop to
+        print stored data
+
+    :param file_name: (file): is the file name from which the information is being retrieved
+    :return: n/a
+    '''
+    file = open(file_name,"rb")
+    file_info = pickle.load(file)
+    file.close()
+    for row in file_info:
+        print("The cube of " + str(row["Number"]) + " equals: " + str(row["Cube"]))
+    return()
+
+
+# Presentation (Input/Output)  -------------------------------------------- #
+print("This program will cube numbers you provide, save the data, and return the information.\n") #header info only
+
+while intChoice == "Pending": #loops until a valid integer is provided by the user
+    intChoice = verify_integer(user_choice=input("Please enter the quantity of numbers you wish to cube: "))
+print("""==============================""")
+
+while count_1 <= int(intChoice): #loops until count exceeds user quanitity. Verifies user input is a float.
+    fltUser_Number = verify_float(user_input=input("What number would you like to cube? "+ str(count_1) + ": "))
+    dicNumCube = {"Number":fltUser_Number,"Cube":round(fltUser_Number**3,2)}
+    lstNumbers.append(dicNumCube)
+    count_1 += 1
+
+print("""
+Your data was saved to a file.
+==============================""")
+
+save_data(data=lstNumbers,file_name=strFile) #calls the function to pickle the data
+
+read_data(file_name=strFile) #calls the function to read saved data, save to variable file_info, and print data entered.
+
+print("""==============================""")
+
+input("\n*** You are now leaving the program*** \n\tHit 'Enter' to exit.") #pauses the program before exiting
+```
