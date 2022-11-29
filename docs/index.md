@@ -14,20 +14,30 @@ This paper will discuss the steps taken in completing Assignment07 of the Founda
 
 Prior projects and knowledge that contributed to the successful completion of this assignment include: 
 1.	Assignment01: This assignment requested the creation of a Python script that would accept the first and last name of a user and, in return, would display the concatenated information provided as the full name.  
+
 2.	Assignment02: This assignment requested the creation of a Python script that would independently request two numbers from the user and, in return, would display the sum, difference, product, and quotient of those two numbers. 
+
 3.	Assignment03: This assignment requested the creation of a Python script that would gather a household item from the user, gather an estimated value of the item, and save that information in text file.  
+
 4.	Assignment04: This assignment requested the creation of a Python script that would allow the user to select from a menu to 1) gather multiple household items and estimated costs, 2) display the information gathered from the user back to the user, and save that information in text file and exit the program.
+
 5.	Assignment05: This assignment required the modification of a Python script that would allow the user to select from a menu to show task and priority data, add a new task and priority to the list, remove an existing dictionary from the list, save the information to a text file, and exit the program.
+
 6.	Assignment06: This assignment required modification of / addition to a Python script that would allow the user to select from a menu to show task and priority data, add a new task and priority to the list, remove an existing dictionary from the list, save the information to a text file, and exit the program.
-7.	Independent study prior to the course, including:  
-  a.	YouTube: https://www.youtube.com/watch?v=rfscVS0vtbw, freeCodeCamp.org, Mike Dane (presenting), uploaded July 11, 2018 (External Site)  
-  b.	Pierce County Library Book: Begin to Code with Python, Miles, Robert S., Microsoft/Pearson Education, Inc., 2018, ISBN 9781509304523
+
+7.	Independent study prior to the course, including:
+    - YouTube: https://www.youtube.com/watch?v=rfscVS0vtbw, freeCodeCamp.org, Mike Dane (presenting), uploaded July 11, 2018 (External Site)
+    
+    - Pierce County Library Book: Begin to Code with Python, Miles, Robert S., Microsoft/Pearson Education, Inc., 2018, ISBN 9781509304523
+
 I chose to perform my coding in PyCharm instead of using IDLE. 
 
 **DOCUMENT FOCUS**  
 
 Assignment 07 had different elements, including:  
+
 1.	Researching the Pickle Method and Exception Handling in Python.
+
 2.	Creation of a script that demonstrates the Pickle Method and Exception Handling in Python.
 
 **_RESEARCH_**
@@ -56,9 +66,10 @@ Assignment 07 had different elements, including:
     - This YouTube video provided a different approach to the Pickle Method than that generally show in class, specifically by using the ‘with’ method. Many of the concepts were the same. I find this information useful so if I see this in the future, I will be more aware and familiar with this approach.  
     - The presenter followed a logical approach in explaining the information.  
 
-**_-- PYTHON SCRIPT – DEMONSTRATE PICKLE AND EXCEPTION HANDLING -- _**
+**_PYTHON SCRIPT – DEMONSTRATE PICKLE AND EXCEPTION HANDLING_**
 
 Before writing code that will actually perform the task, it is important to provide supporting information to any programmer, including myself for later use, about the purpose and historical activities of the code. This information does not have to be lengthy, although it could be if needed. In this case, I provided a description of what the code would do, then provided the Who, What, and When of the changes. 
+
 -----------------------------------------------------------------------------------
  
 -----------------------------------------------------------------------------------
