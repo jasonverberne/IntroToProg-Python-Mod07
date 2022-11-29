@@ -133,32 +133,49 @@ The notable elements of this code include:
  ```
 *Figure 2, Separations of Concern from the provided script*
  
+![Lines10_47](https://user-images.githubusercontent.com/118309003/204617392-27e1056e-26c3-4e9f-8583-859a01edd058.jpg)
+![Lines48_85](https://user-images.githubusercontent.com/118309003/204617472-ce7df50d-525f-4866-80b2-c71c0c46f03b.jpg)
+![Lines86_124](https://user-images.githubusercontent.com/118309003/204617487-540a260f-c96a-436c-b593-27c98886b151.jpg)
+*Figure3:  Python script for Assignment 07*
 
- 
+**CODE DETAILS**
 
-
-Figure3:  Python script for Assignment 07
-
-CODE DETAILS
 1.	Line 10: The keyword import is used to make Pickle available in the script
+
 2.	Lines 14-18: Data/variables that are used in the script (defined under ‘Code Information’ above)
+
 3.	Lines 22-46: This function uses the try/except method to evaluate if the user provided information (via the input() function) is a type integer. Line 29 sets the local variable ‘choice’ to an integer (user_choice). If an error occurs because user_choice is not an integer, then the except ValueError is processed. The user is provided with ‘layman’ guidance and ‘technical’ guidance. A return of string ‘Pending’ will cause the while loop to continue until the user enters an integer. Although I could not think of or cause any other error, I included “except Exception” as a catch-all. 
+
 4.	Lines 48-72: This function uses the try/except method to evaluate if the user provided information (via the input() function) is a type float. This function works similar to the verify_integer function (Lines 22-46). However, instead of returning string ‘Pending’ to continue the loop, I chose to demonstrate a different option of forcing a default zero (0) as the number to cube for the user if they do not provide a float number.
+
 5.	Lines 74-84: This function uses the pickle method to open the file_name in write mode (“wb”). Then the lstNumbers list is saved to the file, in this case "NumberCube.dat."
+
 6.	Lines 86-98: This function uses the pickle method to read/load the data from the file_name (NumberCube.dat). Local variable file_info is used to store the data from the opened file, then the file is closed. File_info is then used in a for/in loop to extract the ‘Number’ and ‘Cube’ from the list of dictionaries and print them to the user in an understandable format. 
+
 7.	Line 102: This is the first line of code when the program begins that causes some action other than the computer just loading the code. This message is provided to the user so they understand the intent of the program. 
+
 8.	Line 104-105: This while loop gathers the user input on the quantity of numbers the user wants the program to cube. The while loop will continue as long as the intChoice variable is equal to ‘Pending.’ The verify_integer function is called to verify the user provides an integer as a response. If not, the function returns ‘Pending’ to continue the loop.
+
 9.	Line106: This line provides the user an aesthetic separation between information.
+
 10.	Lines 108-112: This while loop gathers the user input on the numbers they want the program to cube and store in a file. Line 109 calls the verify_float function to verify the user input is a float number. This while loop will only loop as many times as the user previously indicated in the prior while loop by iterating the count_1 variable. After verifying the user entered a type float or the except returning a zero, Line 110 inserts the information and calculated cube (^3) into a dictionary, which line 111 then appends to the list lstNumbers.
+
 11.	Lines 114-116: Same as line 106
+
 12.	Line 118: This line calls the save_data function (to save the data to a dat file via the Pickle method)
+
 13.	Line 120: This line calls the file_name function (to read & print the previously saved data from the dat file)
+
 14.	Line 122: Same as line 106
+
 15.	Line 124: This line provides a pause in the program and notifies the user they are exiting the program
-RESULTS
-The results of the program were as expected, with the program 1) gathering the quantity of numbers the user wanted to have the program cube (^3), 2) using try/except to validate the data types were appropriate, 3) having the user enter the float numbers to cube, 4) saving the data via the Pickle method, and 5) reading and returning the data to the user from the previously saved file.  Note the example below intentionally contains error in user input to demonstrate the error handling capability of the script. 
------------------------------------------------------------------------------------
-```C:\_PythonClass\Assignment07>python Assignment07.py
+
+**RESULTS**
+
+The results of the program were as expected, with the program 1) gathering the quantity of numbers the user wanted to have the program cube (^3), 2) using try/except to validate the data types were appropriate, 3) having the user enter the float numbers to cube, 4) saving the data via the Pickle method, and 5) reading and returning the data to the user from the previously saved file.  Note the example below intentionally contains error in user input to demonstrate the error handling capability of the script.
+
+```
+C:\_PythonClass\Assignment07>python Assignment07.py
 This program will cube numbers you provide, save the data, and return the information.
 
 Please enter the quantity of numbers you wish to cube: ABC
@@ -196,21 +213,25 @@ The cube of 6.0 equals: 216.0
 ==============================
 
 *** You are now leaving the program***
-        Hit 'Enter' to exit. ```
------------------------------------------------------------------------------------
-Figure 4:  Results after running the Python code and user providing input.
+        Hit 'Enter' to exit. 
+ ```
+*Figure 4:  Results after running the Python code and user providing input.*
 
- 
------------------------------------------------------------------------------------
-Figure 5:  Saved Text File of the User Input
+ ![NumberCubeDATFile](https://user-images.githubusercontent.com/118309003/204618661-134a7fec-5a4f-4385-a6e3-f3f1ca425bb6.jpg)  
+*Figure 5:  Saved Text File of the User Input*
 
-CHALLENGES AND LEARNING 
+**CHALLENGES AND LEARNING**
+
 There were a few challenges and points of learning from this week’s assignment. 
-•	The greatest coding challenge was the creation of the loop after the try/except found an exception. I resolved this by using ‘return “Pending”’ to continue the loop.
-•	I also appreciate the additional effort in proper documentation, and the need to be clear and concise.
-•	This lesson greatly helped my understanding of Pickling, which is something I studies a few months ago, but did not fully understand.
 
-SUMMARY
+- The greatest coding challenge was the creation of the loop after the try/except found an exception. I resolved this by using ‘return “Pending”’ to continue the loop.
+
+- I also appreciate the additional effort in proper documentation, and the need to be clear and concise.
+
+- This lesson greatly helped my understanding of Pickling, which is something I studies a few months ago, but did not fully understand.
+
+**SUMMARY**
+
 This document described the steps taken and approach to completing Assignment07 of the Foundations of Programming: Python Course. It discussed the prior knowledge and background information considered when writing this script, the major sections of the script, and the returned results the user would expect. 
 
 
